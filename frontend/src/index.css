@@ -1,0 +1,168 @@
+
+
+/* ⚠️ إصلاح BUG #32: @import لازم يكون قبل @tailwind */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* إصلاح القوائم المنسدلة - Fix select dropdowns */
+select option {
+  background-color: white;
+  color: #1F2937;
+}
+
+/* متغيرات CSS - CSS Variables */
+:root {
+  --nazra-blue: #0077B6;
+  --nazra-blue-dark: #005F8A;
+  --nazra-blue-light: #00B4D8;
+  --nazra-orange: #FFA500;
+  --nazra-navy: #001F3F;
+  --nazra-bg: #F8FAFC;
+}
+
+/* إعادة تعيين أساسية - Base reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cairo', 'Noto Sans Arabic', 'Tajawal', sans-serif;
+  background-color: var(--nazra-bg);
+  color: #1F2937;
+  direction: rtl;
+  text-align: right;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* تنسيقات شريط التمرير - Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--nazra-blue);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--nazra-blue-dark);
+}
+
+/* تنسيقات مخصصة - Custom utilities */
+@layer components {
+  /* بطاقة - Card */
+  .card {
+    @apply bg-white rounded-xl shadow-md border border-gray-100 transition-all duration-300;
+  }
+  
+  .card:hover {
+    @apply shadow-lg -translate-y-1;
+  }
+
+  /* زر أساسي - Primary button */
+  .btn-primary {
+    @apply bg-nazra-blue text-white px-6 py-2.5 rounded-lg font-semibold 
+           transition-all duration-300 hover:bg-nazra-blue-dark 
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* زر ثانوي - Secondary button */
+  .btn-secondary {
+    @apply bg-nazra-orange text-white px-6 py-2.5 rounded-lg font-semibold 
+           transition-all duration-300 hover:bg-nazra-orange-dark 
+           active:scale-95;
+  }
+
+  /* زر خارجي - Outline button */
+  .btn-outline {
+    @apply border-2 border-nazra-blue text-nazra-blue px-6 py-2.5 rounded-lg font-semibold 
+           transition-all duration-300 hover:bg-nazra-blue hover:text-white 
+           active:scale-95;
+  }
+
+  /* حقل إدخال - Input field */
+  .input-field {
+    @apply w-full px-4 py-2.5 border border-gray-300 rounded-lg 
+           focus:outline-none focus:ring-2 focus:ring-nazra-blue focus:border-transparent
+           transition-all duration-200 bg-white text-right;
+  }
+
+  /* عنوان القسم - Section title */
+  .section-title {
+    @apply text-2xl font-bold text-nazra-navy mb-2;
+  }
+
+  /* وصف القسم - Section subtitle */
+  .section-subtitle {
+    @apply text-nazra-gray text-base;
+  }
+
+  /* شارة - Badge */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-blue {
+    @apply badge bg-blue-100 text-blue-800;
+  }
+
+  .badge-green {
+    @apply badge bg-green-100 text-green-800;
+  }
+
+  .badge-orange {
+    @apply badge bg-orange-100 text-orange-800;
+  }
+
+  .badge-red {
+    @apply badge bg-red-100 text-red-800;
+  }
+}
+
+/* حركات - Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(0, 119, 182, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(0, 119, 182, 0.6); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideInRight 0.4s ease-out;
+}
+
+/* الخريطة - Map */
+.leaflet-container {
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+}
+
+/* تعديلات Leaflet RTL - Leaflet RTL fixes */
+.leaflet-right .leaflet-control {
+  margin-right: 10px;
+}
+
+.leaflet-left .leaflet-control {
+  margin-left: 10px;
+}

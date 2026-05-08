@@ -1,0 +1,7 @@
+# بلاش Git يتجاهل المجلدات الفاضية
+New-Item -ItemType File -Path "D:\nazraproject2\nazra-fixed\backend\storage\framework\sessions\.gitkeep" -Force
+New-Item -ItemType File -Path "D:\nazraproject2\nazra-fixed\backend\storage\framework\views\.gitkeep" -Force
+New-Item -ItemType File -Path "D:\nazraproject2\nazra-fixed\backend\storage\framework\cache\.gitkeep" -Force
+New-Item -ItemType File -Path "D:\nazraproject2\nazra-fixed\backend\storage\framework\cache\data\.gitkeep" -Force
+New-Item -ItemType File -Path "D:\nazraproject2\nazra-fixed\backend\storage\logs\.gitkeep" -Force
+New-Item -ItemType File -Path "D:\nazraproject2\nazra-fixed\backend\bootstrap\cache\.gitkeep" -Force
